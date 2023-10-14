@@ -13,8 +13,10 @@ jobs:
     - name: Install and deploy
       run: | 
         npm install
-        npm install -g gh-pages
+        npm install -g gh-pages 
         npm run build
-        gh-pages -d build
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
       env:
         CI: true
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
