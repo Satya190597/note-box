@@ -5,15 +5,19 @@ on:
       - main
 
 jobs:
-  deploy:
+  deploy-react-app:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
     - name: Install and deploy
       run: | 
         npm install
-        npm install -g gh-pages 
+        npm install -g gh-pages --save-dev
         npm run build
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
