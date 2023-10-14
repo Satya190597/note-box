@@ -1,12 +1,12 @@
 function filterByType(type, data) {
   return data.filter((element) => {
-    if (element.TYPE === type) return element;
+    return element.TYPE === type
   });
 }
 
 function filterByTopic(topicName, data) {
   return data.filter((element) => {
-    if (element.TOPIC === topicName) return element;
+    return element.TOPIC === topicName
   });
 }
 
