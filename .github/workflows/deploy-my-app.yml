@@ -1,0 +1,19 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install and deploy
+      run: | 
+        npm install -g gh-pages
+        npm run build
+        gh-pages -d build
+      env:
+        CI: true
