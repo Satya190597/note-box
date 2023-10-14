@@ -1,0 +1,50 @@
+.card-container {
+    margin:0px auto;
+    width: 90%;
+    overflow-y: hidden;
+}
+.card-container-body {
+  max-height: 350px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.card-container-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::-webkit-scrollbar {
+    width: 5px; /* Width of the scrollbar track */
+  }
+  
+  /* Customize the scrollbar thumb (the draggable handle) */
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Background color of the thumb */
+  }
+  
+  /* Customize the scrollbar track on hover */
+  ::-webkit-scrollbar:hover {
+    background: #f0f0f0; /* Background color when the scrollbar is hovered */
+  }
+  
+  /* Customize the scrollbar thumb on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Background color of the thumb on hover */
+  }
+  
+  /* Customize the scrollbar buttons (the arrows at the ends) */
+  ::-webkit-scrollbar-button {
+    background: #ccc; /* Background color of the buttons */
+  }
+  
+  /* Customize the scrollbar corner (where the vertical and horizontal scrollbars meet) */
+  ::-webkit-scrollbar-corner {
+    background: #f0f0f0; /* Background color of the scrollbar corner */
+  }
+
+  
+  
+  
+  
+  

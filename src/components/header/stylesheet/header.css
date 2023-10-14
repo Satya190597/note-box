@@ -1,0 +1,26 @@
+nav {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-grow: 0;
+  
+}
+nav div:first-child {
+  align-self: flex-start;
+  padding: 5px;
+}
+nav div:last-child {
+  align-self: first baseline flex-end;
+  padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    text-decoration: none;
+    color: black;
+}
