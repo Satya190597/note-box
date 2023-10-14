@@ -1,0 +1,21 @@
+.page-title-paragraph {
+    text-align: center;
+    width: 60%;
+    font-size: large;
+    margin: 0 auto;
+}
+.page-title-paragraph-xl {
+    text-align: center;
+    width: 60%;
+    font-size: xx-large;
+    margin: 0 auto;
+    font-weight: bold;
+}
+.page-title-paragraph-xl span {
+    color: brown;
+}
+.page-title-container {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
