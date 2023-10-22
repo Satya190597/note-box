@@ -38,12 +38,12 @@ function filterCategories(data) {
   return [...new Set(result)];
 }
 
-function getAllTags(data) {
-  const result = data.map((element) => {
-    return element.TAGS;
-  });
-  return [...new Set(result)];
-}
+// function getAllTags(data) {
+//   const result = data.map((element) => {
+//     return element.TAGS;
+//   });
+//   return [...new Set(result)];
+// }
 
 export {
   filterByType,
