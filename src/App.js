@@ -7,13 +7,16 @@ import {
   filterByType,
   filterCategories,
   getTypeName,
+  filterBySearch
 } from "./util/filter-props-data";
 import PageTitle from "./components/page-title/page-title";
 import Loading from "./components/loading/loading";
+import Search from "./components/search/search";
 
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchText, setSearchText] = useState("");
   useEffect(() => {
     getAllData().then((response) => {
       setData(response);
@@ -31,12 +34,13 @@ function App() {
             title="This is Great"
           />
           <PageTitle />
+          <Search searchText={searchText} setSearchText={setSearchText} />
           <div>
             {filterCategories(data).map((type, index) => {
               return (
                 <Card
                   header={{ title: getTypeName(type, data) }}
-                  data={filterByType(type, data)}
+                  data={filterBySearch(searchText, filterByType(type, data))}
                   key={index}
                 />
               );

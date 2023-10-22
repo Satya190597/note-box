@@ -23,7 +23,7 @@ function ContentCard(props) {
       </div>
       <div className="content-card-body">
         <span>
-          <label>Reference :</label>{" "}
+          <label>Resource :</label>{" "}
           <a href={props.data.REFERENCE}>{props.data.REFERENCE}</a>
         </span>
       </div>
