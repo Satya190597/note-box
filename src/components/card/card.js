@@ -9,12 +9,9 @@ function Card(props) {
   const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     setTotalPages(Math.ceil(props.data.length / ITEM_PER_PAGE));
-    setItemPerPageFn();
+    setCurrentPage(1);
   }, [props.data]);
 
-  // useEffect(() => {
-  //   setItemPerPageFn();
-  // }, []);
   useEffect(() => {
     setItemPerPageFn();
   }, [currentPage]);
