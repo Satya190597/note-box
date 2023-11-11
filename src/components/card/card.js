@@ -13,14 +13,13 @@ function Card(props) {
   }, [props.data]);
 
   useEffect(() => {
+    const setItemPerPageFn = () => {
+      const startIndex = (currentPage - 1) * ITEM_PER_PAGE;
+      const lastIndex = startIndex + 3;
+      setItemsPerPage(props.data.slice(startIndex, lastIndex));
+    };
     setItemPerPageFn();
-  }, [currentPage]);
-
-  const setItemPerPageFn = () => {
-    const startIndex = (currentPage - 1) * ITEM_PER_PAGE;
-    const lastIndex = startIndex + 3;
-    setItemsPerPage(props.data.slice(startIndex, lastIndex));
-  };
+  }, [currentPage,props.data]);
 
   const paginationItems = () => {
     const elements = [];
