@@ -2,16 +2,37 @@
     margin:0px auto;
     width: 90%;
     overflow-y: hidden;
+    margin-bottom: 40px;
 }
 .card-container-body {
-  max-height: 350px;
-  overflow-y: scroll;
+  min-height: 400px;
+  max-height: 400px;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 .card-container-footer {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: right;
+}
+.card-pagination {
+  list-style: none;
+  
+  float: left;
+}
+
+.card-pagination li {
+  display: inline;
+  background-color: #34495E;
+  color: #FFFFFF;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {

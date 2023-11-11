@@ -6,9 +6,20 @@ function filterByType(type, data) {
 function filterBySearch(searchText, data) {
   if (searchText === undefined || searchText === "" || searchText === null)
     return data;
-  const regex = new RegExp(`\\b${searchText}\\b`,"i");
+  const regex = new RegExp(`\\b${searchText}\\b`, "i");
+  console.log(
+    data.filter((element) => {
+      debugger;
+      return (
+        regex.test(element.TITLE) ||
+        regex.test(element.TAG) ||
+        regex.test(element.TOPIC) ||
+        regex.test(element.DESCRIPTION)
+      );
+    })
+  );
   return data.filter((element) => {
-    debugger
+    debugger;
     return (
       regex.test(element.TITLE) ||
       regex.test(element.TAG) ||

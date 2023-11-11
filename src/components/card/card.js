@@ -1,7 +1,38 @@
+import React, { useEffect, useState } from "react";
 import ContentCard from "../content-card.js/content-card";
 import "./stylesheet/card-module.css";
 
 function Card(props) {
+  const ITEM_PER_PAGE = 3;
+  const [totalPages, setTotalPages] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  useEffect(() => {
+    setTotalPages(Math.ceil(props.data.length / ITEM_PER_PAGE));
+    setItemPerPageFn();
+  }, [props.data]);
+
+  // useEffect(() => {
+  //   setItemPerPageFn();
+  // }, []);
+  useEffect(() => {
+    setItemPerPageFn();
+  }, [currentPage]);
+
+  const setItemPerPageFn = () => {
+    const startIndex = (currentPage - 1) * ITEM_PER_PAGE;
+    const lastIndex = startIndex + 3;
+    setItemsPerPage(props.data.slice(startIndex, lastIndex));
+  };
+
+  const paginationItems = () => {
+    const elements = [];
+    for (let index = 1; index <= totalPages; index++) {
+      elements.push(<li onClick={() => setCurrentPage(index)}>{index}</li>);
+    }
+    return elements;
+  };
+
   return (
     <>
       {props.data.length > 0 && (
@@ -10,12 +41,12 @@ function Card(props) {
             <h2>{props.header.title}</h2>
           </div>
           <div className="card-container-body">
-            {props.data.map((element, index) => {
+            {itemsPerPage.map((element, index) => {
               return <ContentCard data={element} key={index} />;
             })}
           </div>
           <div className="card-container-footer">
-            {/* <label className="scroll-label">Scroll</label> */}
+            <ul className="card-pagination">{paginationItems()}</ul>
           </div>
         </div>
       )}
