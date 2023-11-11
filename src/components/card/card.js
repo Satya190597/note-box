@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ContentCard from "../content-card.js/content-card";
+import ContentCardExtra from "../content-card-extra/content-card-extra";
 import "./stylesheet/card-module.css";
 
 function Card(props) {
@@ -19,7 +20,7 @@ function Card(props) {
       setItemsPerPage(props.data.slice(startIndex, lastIndex));
     };
     setItemPerPageFn();
-  }, [currentPage,props.data]);
+  }, [currentPage, props.data]);
 
   const paginationItems = () => {
     const elements = [];
@@ -40,6 +41,15 @@ function Card(props) {
             {itemsPerPage.map((element, index) => {
               return <ContentCard data={element} key={index} />;
             })}
+            {itemsPerPage.length < 3 && (
+              <ContentCardExtra
+                content={
+                  props.header.title === "Repository"
+                    ? "This is it !! Working on new repos 💻"
+                    : "This is it !! Working on new notes ✍️"
+                }
+              ></ContentCardExtra>
+            )}
           </div>
           <div className="card-container-footer">
             <ul className="card-pagination">{paginationItems()}</ul>
